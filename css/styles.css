@@ -33,13 +33,15 @@ body{
   /*justify-content: center;
   align-items: center;*/
   /*height: 100vh;*/
+  overflow-x: hidden !important;
 
   background-color: var(--bg-color);
 }
 
 /*Navbar*/
+/**/
 .navbar {
-  background-color: #1c355ea9; 
+  background-color: #1c355ea9;
   height: 80px;
   display: flex;
   justify-content: center;
@@ -48,41 +50,38 @@ body{
   position: sticky;
   top: 0;
   z-index: 999;
-  transition: background-color 0.3s ease; 
+  transition: background-color 0.3s ease;
 }
-
-
 
 .navbar.scrolled {
   background-color: #1C355E;
-  transition: background-color 0.3s ease; 
+  transition: background-color 0.3s ease;
 }
 
 @media screen and (max-width: 960px) {
   .hero-content {
-      height: 50vh; 
+    height: 50vh;
   }
 
   .hero-content img {
-      height: 100%; 
-      width: 100%; 
-      object-fit: cover; 
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
   }
 }
+
 .hero-content {
-  height: 100vh; 
+  height: 100vh;
   display: flex;
   justify-content: center;
   align-items: center;
 }
 
 .hero-content img {
-  width: 100%; 
-  /*height: 100%;*/
+  width: 100%;
   position: absolute;
   top: 0;
 }
-
 
 .navbar__container {
   display: flex;
@@ -96,12 +95,25 @@ body{
 }
 
 .navbar__logo__container {
-  text-align:left;
+  text-align: left;
 }
+
 #main__logo {
-  height: 95%;
-  margin:1.8% 0;
+  height: 75%;
+  margin-top: 5px;
   align-items: center;
+}
+
+/* Media query for mobile screens */
+@media (max-width: 768px) {
+  #main__logo {
+    height: auto; /* Allow logo to maintain aspect ratio */
+    margin-top: 5px; /* Remove top margin */
+    align-items: flex-start; /* Align to the left */
+    display: block; /* Ensure it behaves as a block element */
+    margin-left: 0; /* Move it to the left-most */
+    max-height: 50px; /* Set a maximum height for the logo */
+  }
 }
 
 .navbar__logo__text {
@@ -131,110 +143,108 @@ body{
 
 .navbar__links:hover {
   color: #f8af28;
-  transition: all 0.3 ease;
-
+  transition: all 0.3s ease;
 }
 
-.navbar__logo{
+.navbar__logo {
   height: 100%;
 }
 
-
 .navbar__logo__text {
-  position:absolute;
+  position: absolute;
   top: 29px;
   padding-left: 10px;
   text-decoration: none;
   color: #343434;
   font-size: 16px;
-
 }
-
 
 @media screen and (max-width: 960px) {
   .navbar__container {
-      display: flex;
-      justify-content: space-between;
-      height: 70px;
-      z-index: 1;
-      width: 100%;
-      max-width: 1300px;
-      padding: 3px 0px;
+    display: flex;
+    justify-content: space-between;
+    height: 70px;
+    z-index: 1;
+    width: 100%;
+    max-width: 1300px;
+    padding: 3px 0px;
   }
+  
   #main__logo {
-      height: 100%;
-      margin-left: 20%;
-      align-items: center;
+    height: auto; /* Allow logo to maintain aspect ratio */
+    margin-left: 20%;
+    align-items: center;
+    max-height: 50px; /* Set a maximum height for the logo */
   }
+  
   .navbar__menu {
-      display: grid;
-      grid-template-columns:auto;
-      margin: 0;
-      position: absolute;
-      width: 100%;
-      top: -1000px;
-      opacity: 0;
-      transition: all 0.5s ease;
-      height: 40vh;
-      z-index: -1;
-      background: #fff;
+    display: grid;
+    grid-template-columns: auto;
+    margin: 0;
+    position: absolute;
+    width: 100%;
+    top: -1000px;
+    opacity: 0;
+    transition: all 0.5s ease;
+    height: 40vh;
+    z-index: -1;
+    background: #fff;
   }
 
   .navbar__menu.active {
-      background: #1c355eb9;
-      top:100%;
-      opacity: 1;
-      transition: all 0.5s ease;
-      z-index: 999;
-      height: 80vh;
-      font-size: 1.6rem;
+    background: #1c355eb9;
+    top: 100%;
+    opacity: 1;
+    transition: all 0.5s ease;
+    z-index: 999;
+    height: 80vh;
+    font-size: 1.6rem;
   }
 
   .navbar__toggle .bar {
-      width: 25px;
-      height: 3px;
-      margin: 5px auto;
-      transition: all 0.3s ease-in-out;
-      background: white;
+    width: 25px;
+    height: 3px;
+    margin: 5px auto;
+    transition: all 0.3s ease-in-out;
+    background: white;
   }
 
   .navbar__item {
-  width: 100%;
+    width: 100%;
   }
 
   .navbar__links {
-      text-align: center;
-      padding: 1rem;
-      width: 100%;
-      display: table;
+    text-align: center;
+    padding: 1rem;
+    width: 100%;
+    display: table;
   }
 
   #mobile-menu {
-      position: absolute;
-      top: 23%;
-      right: 5%;
-      transform: translate(5%, 20%);
+    position: absolute;
+    top: 23%;
+    right: 5%;
+    transform: translate(5%, 20%);
   }
 
   .navbar__toggle .bar {
-      display: block;
-      cursor: pointer;
-      border-radius: 2px;
+    display: block;
+    cursor: pointer;
+    border-radius: 2px;
   }
 
   #mobile-menu.is-active .bar:nth-child(2) {
-      opacity: 0;
+    opacity: 0;
   }
 
   #mobile-menu.is-active .bar:nth-child(1) {
-      transform: translateY(8px) rotate(45deg);
+    transform: translateY(8px) rotate(45deg);
   }
 
   #mobile-menu.is-active .bar:nth-child(3) {
-      transform: translateY(-8px) rotate(-45deg);
+    transform: translateY(-8px) rotate(-45deg);
   }
 }
-
 
 .hero_text {
   position: absolute;
@@ -243,23 +253,21 @@ body{
   transform: translate(-50%, -50%);
   text-align: center;
   color: white;
-  z-index: 1; 
-  background-color: #1c355ea9; 
-  padding: 20px; /
+  z-index: 1;
+  background-color: #1c355ea9;
+  padding: 20px; 
   /*border-radius: 10px;*/
   /*max-width: 80%; */
 }
 
-
 .hero_text h1 {
-  font-size: 3rem; 
+  font-size: 3rem;
   margin-bottom: 1rem;
 }
 
-
 .hero_text .btn:hover {
   background-color: #e09b20; 
-  color:rgba(11, 66, 77, 0.7);
+  color: rgba(11, 66, 77, 0.7);
   font-weight: bold;
   transition: 0.3s;
 }
@@ -467,16 +475,18 @@ body{
       align-items: center;
       margin-top: 30px;
   }
+
   .courses-left {
-      width: 100%;
-      max-width: none;
-      margin-right: 0;
-      text-align: center;
-      padding-bottom: 100;
-      /*padding:0 50%;*/
-      padding-left: 50%;
-      padding-right: 50%;
+      width: 100%; /* Set width to full */
+      max-width: 100%; /* Ensure no extra width */
+      margin-right: 0; /* Remove right margin */
+      text-align: center; /* Center text */
+      padding: 0 20px; /* Add padding on the sides for spacing, adjust as needed */
+      box-sizing: border-box; /* Ensure padding doesn’t affect width */
+      padding-bottom: 200px;
+      padding-top: 30px;
   }
+
   .courses-right {
       display: flex; 
       justify-content: center; 
@@ -992,8 +1002,6 @@ body{
   }
 }
 
-
-
 .swiper-wrapper-1 h1 {
   position: absolute;
   top: 0;
@@ -1004,4 +1012,10 @@ body{
   font-size: 2em; /* Adjust as needed */
   z-index: 10; /* Ensure it is above other elements */
   padding-top: 15px;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
 }
